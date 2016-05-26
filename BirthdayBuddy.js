@@ -1,8 +1,12 @@
 "use strict"
 const TwitterBot = require('node-twitterbot').TwitterBot;
-const config = require('./config');
 
-var Bot = new TwitterBot(config);
+var Bot = new TwitterBot({
+	"consumer_secret": process.env.consumer_secret,
+	"consumer_key": process.env.consumer_key,
+	"access_token": process.env.access_token,
+	"access_token_secret": process.env.access_token_secret
+});
 
 const Today = new Date();
 const BirthdayDate = new Date('2019-01-16');
@@ -21,7 +25,7 @@ function GetDaysUntilBirthday() {
 }
 
 function GetName() {
-   nameIndex = Math.floor(Math.random() * names.length);
+  let nameIndex = Math.floor(Math.random() * names.length);
   return names[nameIndex];
 }
 
