@@ -1,3 +1,4 @@
+"use strict"
 const TwitterBot = require('node-twitterbot').TwitterBot;
 const config = require('./config');
 
@@ -20,7 +21,7 @@ function GetDaysUntilBirthday() {
 }
 
 function GetName() {
-  let nameIndex = Math.floor(Math.random() * names.length);
+   nameIndex = Math.floor(Math.random() * names.length);
   return names[nameIndex];
 }
 
