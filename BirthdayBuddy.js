@@ -1,11 +1,16 @@
 "use strict"
 const TwitterBot = require('node-twitterbot').TwitterBot;
+let Config = undefined;
+
+if (process.env.consumer_secret === undefined) {
+	Config = require('./config');
+}
 
 var Bot = new TwitterBot({
-	"consumer_secret": process.env.consumer_secret,
-	"consumer_key": process.env.consumer_key,
-	"access_token": process.env.access_token,
-	"access_token_secret": process.env.access_token_secret
+	"consumer_secret": process.env.consumer_secret || Config.consumer_secret,
+	"consumer_key": process.env.consumer_key || Config.consumer_key,
+	"access_token": process.env.access_token || Config.access_token,
+	"access_token_secret": process.env.access_token_secret || Config.access_token_secret
 });
 
 const Today = new Date();
