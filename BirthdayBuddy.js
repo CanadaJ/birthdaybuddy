@@ -34,10 +34,16 @@ function GetName() {
   return names[nameIndex];
 }
 
-let DaysUntilBirthday = GetDaysUntilBirthday();
-let Name = GetName();
-let Days = DaysUntilBirthday === 1 ? 'day' : 'days';
+setInterval(function() {
+	try {
+		let DaysUntilBirthday = GetDaysUntilBirthday();
+		let Name = GetName();
+		let Days = DaysUntilBirthday === 1 ? 'day' : 'days';
 
-let TweetMessage = `${Handle}\n\n${Name}, Only ${DaysUntilBirthday} ${Days} until your 21st birthday!!\n\n#birthdaybuddy`
+		let TweetMessage = `${Handle}\n\n${Name}, Only ${DaysUntilBirthday} ${Days} until your 21st birthday!!\n\n#birthdaybuddy`
 
-Bot.tweet(TweetMessage);
+		Bot.tweet(TweetMessage);
+	} catch (e) {
+		console.log(e);
+	}
+}, 30000);
