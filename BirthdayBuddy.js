@@ -34,7 +34,7 @@ function GetName() {
   return names[nameIndex];
 }
 
-setInterval(function() {
+function sendBirthdayTweet() {
 	try {
 		let DaysUntilBirthday = GetDaysUntilBirthday();
 		let Name = GetName();
@@ -54,4 +54,7 @@ setInterval(function() {
 	} catch (e) {
 		console.log(e);
 	}
-}, 86400000);
+}
+
+sendBirthdayTweet();
+setInterval(sendBirthdayTweet, 86400000);
