@@ -15,7 +15,7 @@ var Bot = new TwitterBot({
 
 const Today = new Date();
 const BirthdayDate = new Date('2019-01-16');
-const Handle = '@BabbyCanada'
+const Handle = '@babycanada7'
 
 const names = [
 	'Little Buddy', 'Little Fella', 'Lil\' Buddy', 'Lil\' Fella',
@@ -40,7 +40,15 @@ setInterval(function() {
 		let Name = GetName();
 		let Days = DaysUntilBirthday === 1 ? 'day' : 'days';
 
-		let TweetMessage = `${Handle}\n\n${Name}, Only ${DaysUntilBirthday} ${Days} until your 21st birthday!!\n\n#birthdaybuddy`
+		let TweetMessage = '';
+
+		if (DaysUntilBirthday === 0) {
+			TweetMessage = `${Handle}\n\nTHIS IS A MUNGO ALERT\n\n${Name} IS NOW A MUNGO.\n\nCongrats, and happy birthday! #birthdaybuddy`;
+			Bot.tweet(TweetMessage);
+			return;
+		}
+
+		TweetMessage = `${Handle}\n\n${Name}, Only ${DaysUntilBirthday} ${Days} until your 21st birthday!!\n\n#birthdaybuddy`
 
 		Bot.tweet(TweetMessage);
 	} catch (e) {
