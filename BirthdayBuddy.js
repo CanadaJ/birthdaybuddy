@@ -56,5 +56,4 @@ function sendBirthdayTweet() {
 	}
 }
 
-sendBirthdayTweet();
 setInterval(sendBirthdayTweet, 86400000);
