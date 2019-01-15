@@ -13,6 +13,7 @@ var Bot = new TwitterBot({
 	"access_token_secret": process.env.access_token_secret || Config.access_token_secret
 });
 
+const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 const Today = new Date();
 const BirthdayDate = new Date('2019-01-16');
 const Handle = '@babycanada7'
@@ -26,9 +27,10 @@ const names = [
 ];
 
 function GetDaysUntilBirthday() {
-  let foo = parseInt((BirthdayDate.getTime() - Today.getTime()) / (24 * 3600 * 1000)) + 1;
-  console.log(foo);
-  return foo;
+  let bdayDate = BirthdayDate.getTime();
+  let todayDate = Today.getTime();
+
+  return Math.ceil((bdayDate - todayDate) / _MS_PER_DAY) + 1;
 }
 
 function GetName() {
