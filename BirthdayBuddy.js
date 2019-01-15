@@ -26,7 +26,7 @@ const names = [
 ];
 
 function GetDaysUntilBirthday() {
-  return parseInt((BirthdayDate.getTime() - Today.getTime()) / (24 * 3600 * 1000));
+  return parseInt((BirthdayDate.getTime() - Today.getTime()) / (24 * 3600 * 1000)) + 1;
 }
 
 function GetName() {
