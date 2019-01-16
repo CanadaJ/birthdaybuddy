@@ -30,7 +30,7 @@ function GetDaysUntilBirthday() {
   let bdayDate = BirthdayDate.getTime();
   let todayDate = Today.getTime();
 
-  return Math.ceil((bdayDate - todayDate) / _MS_PER_DAY) + 1;
+  return Math.ceil((bdayDate - todayDate) / _MS_PER_DAY);
 }
 
 function GetName() {
